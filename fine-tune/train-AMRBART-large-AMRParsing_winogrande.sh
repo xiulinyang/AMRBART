@@ -4,7 +4,7 @@ RootDir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 Dataset=LDC2020
 #Dataset=LDC2017
 
-BasePath=/home/xy236/AMR-BART        # change dir here
+BasePath=/home/xy236/AMRBART        # change dir here
 DataPath=$RootDir/outputs/$Dataset
 
 ModelCate=AMRBART-large
@@ -15,7 +15,7 @@ DataCache=$DataPath/.cache/dump-amrparsing
 
 lr=1e-5
 
-OutputDir=${RootDir}/outputs/$Dataset-${ModelCate}-AMRParing-bsz16-lr-${lr}-UnifiedInp_amr3_2
+OutputDir=${RootDir}/outputs/$Dataset-${ModelCate}-AMRParing-bsz16-lr-${lr}-UnifiedInp_wiongrande_2
 
 if [ ! -d ${OutputDir} ];then
   mkdir -p ${OutputDir}
@@ -38,7 +38,7 @@ fi
 python -u main.py \
     --data_dir $DataPath \
     --task "text2amr" \
-    --train_file $DataPath/train.jsonl \
+    --train_file $DataPath/wino.jsonl \
     --validation_file $DataPath/dev.jsonl \
     --test_file $DataPath/test.jsonl \
     --output_dir $OutputDir \

@@ -46,6 +46,8 @@ require_version(
     "datasets>=1.8.0", "To fix: pip install -r examples/pytorch/summarization/requirements.txt"
 )
 
+import os
+os.environ["TRANSFORMERS_CACHE"] = "/home/xy236/.cache/huggingface"
 logger = logging.getLogger(__name__)
 
 try:
